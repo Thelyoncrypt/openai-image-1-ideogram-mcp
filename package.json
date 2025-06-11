@@ -1,0 +1,58 @@
+{
+  "name": "@sunwood-ai-labs/ideogram-mcp-server-v3",
+  "version": "1.0.0",
+  "description": "Ideogram v3.0 API MCP Server with Style References, Rendering Speed, and Enhanced Features",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "ideogram-mcp-server-v3": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "dev": "npm run build && npm run start",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ideogram",
+    "ideogram-v3",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "image-generation",
+    "style-reference",
+    "typescript"
+  ],
+  "author": "Sunwood AI Labs",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.0",
+    "form-data": "^4.0.0",
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/fs-extra": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sunwood-ai-labs/ideogram-mcp-server-v3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sunwood-ai-labs/ideogram-mcp-server-v3/issues"
+  },
+  "homepage": "https://github.com/Sunwood-ai-labs/ideogram-mcp-server-v3#readme"
+}
