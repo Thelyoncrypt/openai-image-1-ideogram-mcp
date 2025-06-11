@@ -19,7 +19,7 @@ export async function runServer(apiKey: string): Promise<void> {
   // Create MCP server
   const server = new Server(
     {
-      name: 'ideogram-mcp-server-v3',
+      name: 'openai-image-1-ideogram-mcp',
       version: '1.0.0',
     },
     {
@@ -80,7 +80,7 @@ export async function runServer(apiKey: string): Promise<void> {
   };
 
   process.on('SIGINT', async () => {
-    console.log('\nShutting down Ideogram MCP Server v3...');
+    console.log('\nShutting down OpenAI Image 1 Ideogram MCP Server...');
     await server.close();
     process.exit(0);
   });
@@ -88,7 +88,7 @@ export async function runServer(apiKey: string): Promise<void> {
   // Start server
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  
-  console.log('Ideogram MCP Server v3.0 started successfully!');
+
+  console.log('OpenAI Image 1 Ideogram MCP Server started successfully!');
   console.log('Features: Style References, Rendering Speed Control, Enhanced Quality');
 }

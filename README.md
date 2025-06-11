@@ -1,86 +1,129 @@
-# 🎨 Ideogram MCP Server v3.0
+# OpenAI Image 1 Ideogram MCP
 
-[![GitHub](https://img.shields.io/github/license/Thelyoncrypt/ideogram-mcp-server-v3)](https://github.com/Thelyoncrypt/ideogram-mcp-server-v3/blob/main/LICENSE)
-[![npm](https://img.shields.io/npm/v/@sunwood-ai-labs/ideogram-mcp-server-v3)](https://www.npmjs.com/package/@sunwood-ai-labs/ideogram-mcp-server-v3)
+![MCP Banner](./MCP%20BANNER.png)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/@lyoncrypt/openai-image-1-ideogram-mcp.svg)](https://www.npmjs.com/package/@lyoncrypt/openai-image-1-ideogram-mcp)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![GitHub Issues](https://img.shields.io/github/issues/Thelyoncrypt/openai-image-1-ideogram-mcp.svg)](https://github.com/Thelyoncrypt/openai-image-1-ideogram-mcp/issues)
 
-A Model Context Protocol (MCP) server for **Ideogram v3.0 API** with advanced features including Style References, Rendering Speed Control, and Enhanced Quality generation.
+## Overview
 
-## ✨ Features
+**OpenAI Image 1 Ideogram MCP** is an enterprise-grade Model Context Protocol (MCP) server that provides seamless integration with Ideogram's v3.0 API. This professional-grade solution enables advanced AI image generation capabilities with sophisticated style control, rendering optimization, and enhanced quality output for production environments.
 
-### 🚀 Ideogram v3.0 Support
-- **Style References**: Upload up to 3 reference images or use style codes
-- **Rendering Speed**: Choose between TURBO, DEFAULT, or QUALITY
-- **Enhanced Realism**: Stunning photorealistic image generation
-- **Creative Designs**: Professional-quality graphics and text rendering
-- **Magic Prompt**: AI-enhanced prompt optimization
+Built with TypeScript and modern development practices, this MCP server offers robust error handling, comprehensive validation, and enterprise-ready features for organizations requiring reliable AI image generation services.
 
-### 🎯 Key Capabilities
-- Generate 1-8 images per request
-- 15 aspect ratios (1x1, 16x9, 4x3, etc.)
-- 69+ resolution options
-- Style codes and random style selection
-- Negative prompts for exclusions
-- Seed control for reproducible results
+## Model Context Protocol (MCP) Integration
 
-## 🚀 Quick Start
+This server implements the **Model Context Protocol (MCP)** standard, enabling seamless integration with AI assistants and applications. MCP provides a standardized way for AI models to access external tools and services, making this Ideogram integration immediately compatible with:
 
-### Installation
+- **Claude Desktop**: Direct integration through MCP configuration
+- **Custom AI Applications**: Any MCP-compatible client
+- **Development Environments**: Local and cloud-based AI development setups
+- **Enterprise AI Platforms**: Scalable deployment across organizations
+
+The MCP architecture ensures secure, reliable, and standardized communication between AI models and the Ideogram v3.0 API, providing enterprise-grade image generation capabilities with professional oversight and control.
+
+## Core Features
+
+### Advanced Image Generation
+- **Ideogram v3.0 Integration**: Full support for the latest Ideogram API with enhanced capabilities
+- **Style Reference System**: Upload up to 3 reference images or utilize 8-character hexadecimal style codes
+- **Rendering Optimization**: Configurable rendering speeds (TURBO, DEFAULT, QUALITY) for performance tuning
+- **Enhanced Realism**: State-of-the-art photorealistic image generation with superior quality
+- **Professional Graphics**: Enterprise-grade text rendering and creative design capabilities
+- **Magic Prompt Enhancement**: AI-powered prompt optimization for improved results
+
+### Production-Ready Capabilities
+- **Batch Processing**: Generate 1-8 images per request for efficient workflows
+- **Flexible Aspect Ratios**: Support for 15 standard aspect ratios including 1x1, 16x9, 4x3, and more
+- **Resolution Control**: Access to 69+ resolution options for diverse output requirements
+- **Style Management**: Advanced style code system with access to 4.3 billion preset styles
+- **Content Filtering**: Negative prompt support for precise content exclusion
+- **Reproducible Generation**: Seed-based control for consistent and repeatable results
+
+## Installation & Setup
+
+### Prerequisites
+
+- **Node.js**: Version 18.0.0 or higher
+- **npm**: Latest stable version
+- **Ideogram API Key**: Obtain from [Ideogram API Management](https://ideogram.ai/manage-api)
+
+### Package Installation
+
+Install the package via npm:
 
 ```bash
-npm install @sunwood-ai-labs/ideogram-mcp-server-v3
+npm install @lyoncrypt/openai-image-1-ideogram-mcp
 ```
 
-### Claude Desktop Setup
+### Claude Desktop Integration
 
-Add to your Claude Desktop MCP configuration:
+Configure your Claude Desktop MCP settings by adding the following to your configuration file:
 
 ```json
 {
   "mcpServers": {
-    "ideogram-v3": {
+    "openai-image-1-ideogram": {
       "command": "npx",
       "args": [
-        "@sunwood-ai-labs/ideogram-mcp-server-v3"
+        "@lyoncrypt/openai-image-1-ideogram-mcp"
       ],
       "env": {
-        "IDEOGRAM_API_KEY": "your_api_key_here"
+        "IDEOGRAM_API_KEY": "your_ideogram_api_key_here"
       }
     }
   }
 }
 ```
 
-### Environment Setup
+### Environment Configuration
+
+Set up your environment variables:
 
 ```bash
+# Required: Ideogram API Key
 export IDEOGRAM_API_KEY="your_ideogram_api_key"
+
+# Optional: Custom output directory
+export OUTPUT_DIR="./generated-images"
+
+# Optional: Default filename prefix
+export BASE_FILENAME="ai-generated-image"
 ```
 
-## 🛠️ Tool Reference
+## API Reference
 
 ### `generate_image`
 
-Generate images using Ideogram v3.0 with advanced features.
+The primary tool for generating high-quality images using Ideogram's v3.0 API with comprehensive parameter control.
+
+#### Method Signature
+
+```typescript
+generate_image(parameters: GenerateImageParams): Promise<GenerationResult>
+```
 
 #### Parameters
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| `prompt` | string | Image generation prompt (English recommended) | ✅ |
-| `aspect_ratio` | string | Aspect ratio (1x1, 16x9, 4x3, etc.) | ❌ |
-| `resolution` | string | Specific resolution (69 options available) | ❌ |
-| `seed` | integer | Random seed (0-2147483647) | ❌ |
-| `magic_prompt` | string | AUTO/ON/OFF - AI prompt enhancement | ❌ |
-| `rendering_speed` | string | TURBO/DEFAULT/QUALITY | ❌ |
-| `style_codes` | array | 8-character hex style codes | ❌ |
-| `style_type` | string | AUTO/GENERAL/REALISTIC/DESIGN | ❌ |
-| `style_reference` | object | Style reference configuration | ❌ |
-| `negative_prompt` | string | What to exclude from image | ❌ |
-| `num_images` | integer | Number of images (1-8) | ❌ |
-| `output_dir` | string | Save directory (default: "docs") | ❌ |
-| `base_filename` | string | Base filename | ❌ |
-| `blur_mask` | boolean | Apply edge blur effect | ❌ |
+| Parameter | Type | Description | Required | Default |
+|-----------|------|-------------|----------|---------|
+| `prompt` | `string` | Primary image generation prompt (English recommended) | ✅ | - |
+| `aspect_ratio` | `AspectRatio` | Image aspect ratio from supported options | ❌ | `1x1` |
+| `resolution` | `string` | Specific resolution (see supported resolutions) | ❌ | Auto |
+| `seed` | `integer` | Deterministic seed for reproducible results (0-2147483647) | ❌ | Random |
+| `magic_prompt` | `MagicPrompt` | AI prompt enhancement: `AUTO`\|`ON`\|`OFF` | ❌ | `AUTO` |
+| `rendering_speed` | `RenderingSpeed` | Quality vs speed: `TURBO`\|`DEFAULT`\|`QUALITY` | ❌ | `DEFAULT` |
+| `style_codes` | `string[]` | Array of 8-character hexadecimal style codes | ❌ | `[]` |
+| `style_type` | `StyleType` | Style category: `AUTO`\|`GENERAL`\|`REALISTIC`\|`DESIGN` | ❌ | `AUTO` |
+| `style_reference` | `StyleReference` | Advanced style reference configuration | ❌ | `null` |
+| `negative_prompt` | `string` | Content exclusion specifications | ❌ | `""` |
+| `num_images` | `integer` | Batch size for generation (1-8) | ❌ | `1` |
+| `output_dir` | `string` | Local storage directory path | ❌ | `"docs"` |
+| `base_filename` | `string` | File naming prefix | ❌ | `"ideogram-image"` |
+| `blur_mask` | `boolean` | Apply artistic edge blur effect | ❌ | `false` |
 
 #### Style Reference Object
 
@@ -92,137 +135,216 @@ Generate images using Ideogram v3.0 with advanced features.
 }
 ```
 
-## 📝 Usage Examples
+## Implementation Examples
 
-### Basic Generation
+### Basic Image Generation
 
-```typescript
+Standard image generation with quality optimization:
+
+```json
 {
-  "prompt": "A beautiful sunset over mountains",
+  "prompt": "Professional corporate office environment with modern design elements",
   "aspect_ratio": "16x9",
-  "rendering_speed": "QUALITY"
+  "rendering_speed": "QUALITY",
+  "style_type": "REALISTIC"
 }
 ```
 
-### Advanced with Style Reference
+### Advanced Style Reference Implementation
 
-```typescript
+Utilizing style references for brand consistency:
+
+```json
 {
-  "prompt": "Modern minimalist logo design",
+  "prompt": "Modern minimalist logo design for technology company",
   "style_reference": {
-    "urls": ["https://example.com/ref1.jpg"],
+    "urls": ["https://example.com/brand-reference.jpg"],
     "random_style": false
   },
   "style_type": "DESIGN",
-  "num_images": 4
+  "num_images": 4,
+  "negative_prompt": "cluttered, busy, complex"
 }
 ```
 
-### Professional Quality
+### Enterprise Batch Processing
 
-```typescript
+High-volume generation with reproducible results:
+
+```json
 {
-  "prompt": "Professional headshot photography",
+  "prompt": "Professional product photography for e-commerce catalog",
   "rendering_speed": "QUALITY",
   "style_type": "REALISTIC",
-  "negative_prompt": "blurry, low quality",
-  "seed": 12345
+  "negative_prompt": "blurry, low resolution, amateur",
+  "seed": 12345,
+  "num_images": 8,
+  "aspect_ratio": "1x1"
 }
 ```
 
-## 🏗️ Development
+### Creative Design Workflow
 
-### Prerequisites
+Advanced creative generation with style codes:
 
-- Node.js 18+
-- TypeScript 5+
-- Ideogram API key
-
-### Setup
-
-```bash
-git clone https://github.com/Thelyoncrypt/ideogram-mcp-server-v3.git
-cd ideogram-mcp-server-v3
-npm install
+```json
+{
+  "prompt": "Artistic poster design with typography and geometric elements",
+  "style_codes": ["A1B2C3D4", "E5F6G7H8"],
+  "style_type": "DESIGN",
+  "magic_prompt": "ON",
+  "rendering_speed": "QUALITY",
+  "blur_mask": true
+}
 ```
 
-### Build
+## Development Guide
+
+### Development Prerequisites
+
+- **Node.js**: Version 18.0.0 or higher
+- **TypeScript**: Version 5.0.0 or higher
+- **Git**: Latest stable version
+- **Ideogram API Key**: Valid API credentials
+
+### Local Development Setup
+
+Clone and configure the development environment:
+
+```bash
+git clone https://github.com/Thelyoncrypt/openai-image-1-ideogram-mcp.git
+cd openai-image-1-ideogram-mcp
+npm install
+cp .env.example .env
+# Configure your API key in .env file
+```
+
+### Build Process
+
+Compile TypeScript to JavaScript:
 
 ```bash
 npm run build
 ```
 
-### Development Mode
+### Development Workflow
+
+Enable watch mode for continuous compilation:
 
 ```bash
 npm run watch
 ```
 
-### Testing
+### Quality Assurance
+
+Run the complete test suite:
 
 ```bash
 npm test
+npm run lint
 ```
 
-## 📁 Project Structure
+## Project Architecture
 
-```
-ideogram-mcp-server-v3/
-├── src/
+```text
+openai-image-1-ideogram-mcp/
+├── src/                          # Source code directory
 │   ├── types/
-│   │   └── ideogram.ts      # Type definitions
+│   │   └── ideogram.ts          # TypeScript type definitions
 │   ├── tools/
-│   │   └── generate-image.ts # Main tool implementation
+│   │   └── generate-image.ts    # Core image generation tool
 │   ├── utils/
-│   │   └── validation.ts    # Utility functions
-│   ├── ideogram-client.ts   # API client
-│   ├── server.ts           # MCP server
-│   └── index.ts            # Entry point
-├── package.json
-├── tsconfig.json
-└── README.md
+│   │   └── validation.ts        # Input validation utilities
+│   ├── ideogram-client.ts       # Ideogram API client implementation
+│   ├── server.ts               # MCP server configuration
+│   └── index.ts                # Application entry point
+├── dist/                        # Compiled JavaScript output
+├── docs/                        # Generated images storage
+├── package.json                 # Package configuration
+├── tsconfig.json               # TypeScript configuration
+├── .env.example                # Environment template
+├── .gitignore                  # Git ignore rules
+├── LICENSE                     # MIT license
+├── CHANGELOG.md               # Version history
+└── README.md                  # Project documentation
 ```
 
-## 🔧 Configuration
+## Configuration Reference
 
 ### Supported Aspect Ratios
 
-- Square: `1x1`
-- Landscape: `16x9`, `4x3`, `21x9`, `3x2`, `5x4`, `3x1`, `2x1`
-- Portrait: `9x16`, `3x4`, `9x21`, `2x3`, `4x5`, `1x3`, `1x2`
+| Category | Ratios | Use Cases |
+|----------|--------|-----------|
+| **Square** | `1x1` | Social media posts, avatars, logos |
+| **Landscape** | `16x9`, `4x3`, `21x9`, `3x2`, `5x4`, `3x1`, `2x1` | Presentations, banners, headers |
+| **Portrait** | `9x16`, `3x4`, `9x21`, `2x3`, `4x5`, `1x3`, `1x2` | Mobile content, posters, stories |
 
-### Rendering Speeds
+### Rendering Performance Options
 
-- **TURBO**: Fastest generation, good quality
-- **DEFAULT**: Balanced speed and quality
-- **QUALITY**: Highest quality, slower generation
+| Speed | Quality | Use Case | Typical Generation Time |
+|-------|---------|----------|------------------------|
+| **TURBO** | Good | Rapid prototyping, previews | ~5-10 seconds |
+| **DEFAULT** | High | Standard production use | ~15-30 seconds |
+| **QUALITY** | Premium | Final deliverables, print | ~30-60 seconds |
 
-## 🤝 Contributing
+### Style Type Categories
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+- **AUTO**: Intelligent style selection based on prompt content
+- **GENERAL**: Versatile style suitable for most applications
+- **REALISTIC**: Photorealistic rendering for authentic imagery
+- **DESIGN**: Optimized for graphics, logos, and creative designs
 
-## 📄 License
+## Contributing
 
-MIT License - see [LICENSE](LICENSE) file for details.
+We welcome contributions from the community. Please follow our contribution guidelines:
 
-## 🔗 Links
+### Development Process
 
-- [Ideogram v3.0 Documentation](https://developer.ideogram.ai/api-reference/api-reference/generate-v3)
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-- [Claude Desktop](https://claude.ai/desktop)
+1. **Fork** the repository to your GitHub account
+2. **Clone** your fork locally
+3. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+4. **Implement** your changes with appropriate tests
+5. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+6. **Push** to your branch (`git push origin feature/amazing-feature`)
+7. **Submit** a Pull Request with detailed description
 
-## 🆕 What's New in v3.0
+### Code Standards
 
-- **Style References**: Revolutionary style control with image references
-- **Enhanced Quality**: Stunning realism and creative design capabilities
-- **Rendering Speed Options**: Choose your speed/quality balance
-- **Improved Text Rendering**: Professional typography in generated images
-- **Better API Integration**: Full v3 endpoint support with all new features
+- Follow TypeScript best practices
+- Maintain test coverage above 80%
+- Use conventional commit messages
+- Update documentation for new features
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for complete details.
+
+## Resources & Documentation
+
+- **[Ideogram v3.0 API Documentation](https://developer.ideogram.ai/api-reference/api-reference/generate-v3)**
+- **[Model Context Protocol Specification](https://modelcontextprotocol.io/)**
+- **[Claude Desktop Integration Guide](https://claude.ai/desktop)**
+- **[TypeScript Documentation](https://www.typescriptlang.org/docs/)**
+
+## Release Notes
+
+### Version 1.0.0 - Initial Release
+
+**New Features:**
+- Complete Ideogram v3.0 API integration
+- Advanced style reference system with image upload support
+- Configurable rendering speed optimization
+- Enterprise-grade error handling and validation
+- Professional TypeScript implementation with full type safety
+- Comprehensive MCP server with robust tool definitions
+
+**Technical Improvements:**
+- Modern ES2022 TypeScript architecture
+- Axios-based HTTP client with retry logic
+- Comprehensive input validation and sanitization
+- Modular design with separation of concerns
+- Production-ready logging and monitoring hooks
 
 ---
 
-Made with ❤️ for the AI creative community
+**Developed by [Lyoncrypt](https://github.com/Thelyoncrypt)** | **Powered by Ideogram v3.0 API**
