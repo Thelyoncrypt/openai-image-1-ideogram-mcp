@@ -18,6 +18,9 @@ This comprehensive documentation covers the installation and setup of multiple A
 - **[Claude Desktop Setup](./installation-guides/claude-desktop.md)** - Anthropic's desktop app with MCP integration
 - **[Augment Code Platform](./installation-guides/augment-code.md)** - Advanced AI coding assistant with context engine
 
+### MCP Servers
+- **[Ideogram MCP Server](./installation-guides/ideogram-mcp.md)** - AI image generation through Model Context Protocol
+
 ## 🛠️ Configuration Guides
 
 ### Environment Configuration

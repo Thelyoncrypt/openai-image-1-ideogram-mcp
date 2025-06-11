@@ -33,6 +33,7 @@ This repository includes comprehensive documentation for setting up AI-powered d
 
 ### Quick Links
 
+- **[Ideogram MCP Server Installation](./docs/installation-guides/ideogram-mcp.md)** - This MCP server setup guide
 - **[Agent Zero Installation](./docs/installation-guides/agent-zero.md)** - Docker-based AI development platform
 - **[Cursor IDE Setup](./docs/installation-guides/cursor-ide.md)** - AI-powered code editor
 - **[Windsurf IDE Installation](./docs/installation-guides/windsurf-ide.md)** - First agentic IDE
