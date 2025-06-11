@@ -25,6 +25,23 @@ This server implements the **Model Context Protocol (MCP)** standard, enabling s
 
 The MCP architecture ensures secure, reliable, and standardized communication between AI models and the Ideogram v3.0 API, providing enterprise-grade image generation capabilities with professional oversight and control.
 
+## 📚 Complete Documentation Suite
+
+This repository includes comprehensive documentation for setting up AI-powered development environments:
+
+**🚀 [Complete Installation & Setup Guide](./docs/README.md)**
+
+### Quick Links
+
+- **[Agent Zero Installation](./docs/installation-guides/agent-zero.md)** - Docker-based AI development platform
+- **[Cursor IDE Setup](./docs/installation-guides/cursor-ide.md)** - AI-powered code editor
+- **[Windsurf IDE Installation](./docs/installation-guides/windsurf-ide.md)** - First agentic IDE
+- **[Claude Desktop Setup](./docs/installation-guides/claude-desktop.md)** - MCP integration guide
+- **[Augment Code Platform](./docs/installation-guides/augment-code.md)** - Advanced AI coding assistant
+- **[MCP Configuration Guide](./docs/configuration/mcp-setup.md)** - Model Context Protocol setup
+- **[API Keys Management](./docs/configuration/api-keys.md)** - Secure authentication setup
+- **[Troubleshooting Guide](./docs/troubleshooting/installation-issues.md)** - Common issues and solutions
+
 ## Core Features
 
 ### Advanced Image Generation
